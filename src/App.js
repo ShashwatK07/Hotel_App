@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Box } from "@mui/material";
+import Heading from "./components/Heading";
+import Tabs from "./components/Tabs";
+import Cards from "./components/Cards/Cards";
+import ShowMoreButton from "./components/ShowMoreButton";
+import HotelPage from "./components/HotelPage"; // Import the HotelPage component
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Box>
+        <Heading />
+        <Switch>
+          <Route path="/" exact>
+            <Tabs />
+            <Cards />
+            <ShowMoreButton />
+          </Route>
+          <Route path="/property/:id">
+            <HotelPage />
+          </Route>
+        </Switch>
+      </Box>
+    </Router>
   );
-}
+};
 
 export default App;

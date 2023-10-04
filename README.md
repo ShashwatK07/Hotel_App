@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Featured Listed Property App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React-based web application that allows users to browse and view featured properties in different cities. Users can filter properties by city, view property details, and load more properties as needed. The application is designed with modularity in mind and utilizes React Router for navigation.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+Usage
+Components
+Redux State Management
+Data Source
 
-### `npm start`
+## Usage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- The application displays a featured property heading and a brief description on the home page.
+- Users can click on city tabs or the "View All" tab to filter properties by city.
+- Users can click on individual property cards to view detailed information about the selected property.
+- The "Show More" button allows users to load more property cards.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Components
 
-### `npm test`
+The application is composed of the following components:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- App.js: The main component that sets up routing and renders other components based on the URL path.
 
-### `npm run build`
+- Heading.jsx: Displays the featured property heading and description.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Tabs.jsx: Provides city filter tabs and a "View All" tab. Users can click on tabs to filter properties by city.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Cards.jsx: Renders property cards based on the selected city and the number of cards to display. Uses Redux state for city and card count.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- HotelPage.jsx: Displays detailed information about a selected property. Accessed by clicking on a property card.
 
-### `npm run eject`
+- ShowMoreButton.jsx: A button that loads more property cards when clicked. Increases the number of cards to display.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Redux State Management
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application uses Redux for state management. It manages the following pieces of state:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- activeCity: Represents the currently selected city for filtering properties.
+- numberOfCardsToShow: Tracks the number of property cards to display on the home page.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Redux actions and reducers are used to update and retrieve these states.
 
-## Learn More
+## Data Source
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The application uses a local JSON file (data.json) as the data source. This file contains information about various properties, including their names, cities, and descriptions. The application filters and displays properties based on this data.
